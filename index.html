@@ -1,1 +1,413 @@
 
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="中山市家鑫建设安装工程有限公司 - 专注分布式光伏发电一站式服务，覆盖居民/工商业屋顶光伏、渔光互补等场景，提供勘测、设计、安装、并网、维护全流程解决方案。">
+  <title>家鑫建设安装 | 分布式光伏一站式服务商</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --deep-sea-blue: #0A2540;
+      --forest-green: #2D6A4F;
+      --light-green: #40916C;
+      --light-gray: #F5F7FA;
+      --mid-gray: #E2E8F0;
+      --text-dark: #1A202C;
+      --text-light: #FFFFFF;
+      --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      color: var(--text-dark);
+      background-color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; height: auto; }
+
+    /* Typography & Floating Effect */
+    h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; color: var(--deep-sea-blue); }
+    h1 { font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -1px; }
+    h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 1rem; }
+    p { font-size: 1.125rem; color: #4A5568; }
+    .float-text { animation: float 4s ease-in-out infinite; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .text-highlight { color: var(--forest-green); font-weight: 700; }
+
+    /* Layout Utilities */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 5rem 0; }
+    .bg-light { background-color: var(--light-gray); }
+    .bg-dark { background-color: var(--deep-sea-blue); color: var(--text-light); }
+    .bg-dark h2, .bg-dark p, .bg-dark a { color: var(--text-light); }
+
+    /* Scroll Animation Base */
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* Header */
+    header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: rgba(255,255,255,0.85); backdrop-filter: blur(10px);
+      z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: var(--transition);
+    }
+    header.scrolled { box-shadow: var(--shadow-md); background: rgba(255,255,255,0.95); }
+    .nav-wrapper { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+    .logo { font-size: 1.5rem; font-weight: 900; color: var(--deep-sea-blue); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .logo span { color: var(--forest-green); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--deep-sea-blue); font-weight: 500; position: relative; padding: 4px 0; }
+    .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--forest-green); transition: var(--transition); }
+    .nav-links a:hover::after { width: 100%; }
+    .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: var(--deep-sea-blue); cursor: pointer; }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh; min-height: 600px;
+      background: linear-gradient(135deg, rgba(10,37,64,0.85), rgba(45,106,79,0.75)), url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      position: relative; color: var(--text-light);
+    }
+    .hero-content { max-width: 800px; padding: 2rem; z-index: 2; }
+    .hero h1 { color: var(--text-light); margin-bottom: 1.5rem; }
+    .hero p { color: rgba(255,255,255,0.9); font-size: 1.25rem; margin-bottom: 2.5rem; }
+    .btn {
+      display: inline-block; padding: 14px 32px;
+      background: linear-gradient(135deg, var(--forest-green), var(--light-green));
+      color: white; border-radius: 50px; text-decoration: none; font-weight: 600;
+      box-shadow: 0 4px 15px rgba(45,106,79,0.4); transition: var(--transition); border: none; cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 25px rgba(45,106,79,0.5); }
+    .btn-outline { background: transparent; border: 2px solid white; margin-left: 1rem; box-shadow: none; color: white; }
+    .btn-outline:hover { background: white; color: var(--deep-sea-blue); }
+
+    /* Cards Grid */
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .card { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); }
+    .card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .card-img { width: 100%; height: 220px; object-fit: cover; }
+    .card-body { padding: 1.5rem; }
+    .card-body h3 { margin-bottom: 0.5rem; color: var(--deep-sea-blue); }
+    .card-body p { font-size: 1rem; }
+
+    /* Process Timeline */
+    .timeline { display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 3rem; position: relative; }
+    .timeline::before { content: ''; position: absolute; top: 40px; left: 0; right: 0; height: 3px; background: var(--mid-gray); z-index: 0; display: none; }
+    @media(min-width: 768px) { .timeline::before { display: block; } }
+    .step { flex: 1; min-width: 150px; text-align: center; position: relative; z-index: 1; padding: 1rem; margin-bottom: 2rem; }
+    .step-icon {
+      width: 80px; height: 80px; background: white; border: 3px solid var(--forest-green);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 2rem; color: var(--forest-green);
+      box-shadow: var(--shadow-md); transition: var(--transition);
+    }
+    .step:hover .step-icon { background: var(--forest-green); color: white; transform: scale(1.1); }
+    .step h4 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .step p { font-size: 0.9rem; color: #64748B; }
+
+    /* Contact Section */
+    .contact-center { text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .contact-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; width: 100%; margin-top: 2rem; }
+    .contact-card {
+      background: white; padding: 2.5rem; border-radius: 16px; box-shadow: var(--shadow-md);
+      min-width: 300px; flex: 1; transition: var(--transition); display: flex;
+      flex-direction: column; align-items: center; text-align: center;
+    }
+    .contact-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .contact-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .contact-card h3 { margin-bottom: 1rem; color: var(--deep-sea-blue); }
+    .contact-card a {
+      display: inline-block; margin-top: 1rem; padding: 10px 24px;
+      background: var(--forest-green); color: white; border-radius: 30px;
+      text-decoration: none; font-weight: 600; transition: var(--transition);
+    }
+    .contact-card a:hover { background: var(--light-green); transform: scale(1.05); }
+
+    /* Footer */
+    footer { background: var(--deep-sea-blue); color: rgba(255,255,255,0.7); padding: 3rem 0 1.5rem; text-align: center; }
+    footer p { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 1rem; }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .footer-links a { color: white; text-decoration: none; transition: var(--transition); }
+    .footer-links a:hover { color: var(--forest-green); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: fixed; top: 80px; left: 0; right: 0; background: white; flex-direction: column; padding: 2rem;
+        gap: 1.5rem; box-shadow: var(--shadow-lg); transform: translateY(-150%); transition: transform 0.4s ease;
+      }
+      .nav-links.active { transform: translateY(0); }
+      .hero h1 { font-size: 2.5rem; }
+      .btn-outline { margin: 1rem 0 0 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="mainHeader">
+    <div class="container nav-wrapper">
+      <a href="#" class="logo">家鑫<span>光伏</span></a>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">关于我们</a></li>
+          <li><a href="#services">服务领域</a></li>
+          <li><a href="#process">合作流程</a></li>
+          <li><a href="#advantages">核心优势</a></li>
+          <li><a href="#contact">联系我们</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="切换菜单">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-content fade-up">
+      <h1 class="float-text">光伏赋能 绿动未来</h1>
+      <p>深耕分布式光伏发电领域，提供勘测·设计·安装·并网·维护一站式全流程服务<br>以严苛标准打造安全稳定的高性价比发电系统</p>
+      <div>
+        <a href="#contact" class="btn">立即咨询方案</a>
+        <a href="#services" class="btn btn-outline">了解服务详情</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="fade-up" style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h2>关于家鑫建设</h2>
+        <p style="font-size: 1.2rem; margin-top: 1rem;">
+          中山市家鑫建设安装工程有限公司深耕<span class="text-highlight">分布式光伏发电</span>领域，拥有专业技术团队，业务全面覆盖居民/工商业屋顶光伏、渔光互补等多元场景。我们以严苛标准把控品质，配套完善售后体系，响应迅速、服务贴心，凭借专业实力与可靠品质，全力助力客户实现<span class="text-highlight">节能减碳</span>目标。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="bg-light">
+    <div class="container">
+      <h2 class="fade-up" style="text-align: center;">多元场景 专业覆盖</h2>
+      <div class="grid-3">
+        <div class="card fade-up">
+          <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=800&q=80" alt="工商业屋顶光伏实景" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3>居民/工商业屋顶光伏</h3>
+            <p>充分利用闲置屋顶资源，定制化铺设高效组件。降低企业/家庭用电成本，实现自发自用、余电上网，快速回本并产生长期稳定收益。</p>
+          </div>
+        </div>
+        <div class="card fade-up" style="transition-delay: 0.1s;">
+          <img src="https://images.unsplash.com/photo-1592833159155-c62df1b65634?auto=format&fit=crop&w=800&q=80" alt="渔光互补项目实景" class="card-img" loading="lazy">
+          <div class="card-body">
+            <h3>渔光互补综合项目</h3>
+            <p>水上发电、水下养殖，一地两用实现土地价值最大化。科学设计支架结构与倾角，保障养殖环境不受干扰，打造生态与经济双赢标杆。</p>
+          </div>
+        </div>
+        <div class="card fade-up" style="transition-delay: 0.2s;">
+          <img src="https://images.unsplash.com/photo-1594818379496-da1e345b0ded?auto=format&fit=crop&w=800&q=80" alt="光伏系统运维与全生命周期管理实景" class="card-img" loading="lazy" data-fallback="https://bailian-bmp-pre.oss-cn-hangzhou.aliyuncs.com/public/system_agent/PlaceHolder.png">
+          <div class="card-body">
+            <h3>全生命周期定制</h3>
+            <p>从项目立项、资质申报、电网接入到智能运维监控，提供闭环管理。系统配置采用一线品牌设备，确保25年高效稳定运行。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <div class="container">
+      <h2 class="fade-up" style="text-align: center;">一站式标准化流程</h2>
+      <div class="timeline fade-up">
+        <div class="step">
+          <div class="step-icon">📐</div>
+          <h4>现场勘测</h4>
+          <p>精准评估光照、承重与遮挡</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">📊</div>
+          <h4>方案设计</h4>
+          <p>定制化排布与收益测算</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">🔧</div>
+          <h4>专业施工</h4>
+          <p>标准化作业严控安全品质</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">🔌</div>
+          <h4>并网验收</h4>
+          <p>代办手续高效接入电网</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">🛡️</div>
+          <h4>运维保障</h4>
+          <p>智能监控定期巡检维护</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advantages -->
+  <section id="advantages" class="bg-dark">
+    <div class="container">
+      <h2 class="fade-up" style="text-align: center; color: var(--text-light);">为何选择家鑫建设？</h2>
+      <div class="grid-3" style="margin-top: 2rem;">
+        <div class="card fade-up" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);">
+          <div class="card-body">
+            <h3 style="color: var(--forest-green);">⚖️ 严苛品控体系</h3>
+            <p style="color: rgba(255,255,255,0.8);">选用Tier 1级组件与逆变器，施工过程遵循国家电力标准，每一道工序可追溯，确保系统25年长效稳定。</p>
+          </div>
+        </div>
+        <div class="card fade-up" style="transition-delay: 0.1s; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);">
+          <div class="card-body">
+            <h3 style="color: var(--forest-green);">💰 高性价比投资</h3>
+            <p style="color: rgba(255,255,255,0.8);">源头供应链直采，优化设计降低BOS成本。提供清晰透明的ROI测算，助力客户快速实现绿色资产回报。</p>
+          </div>
+        </div>
+        <div class="card fade-up" style="transition-delay: 0.2s; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);">
+          <div class="card-body">
+            <h3 style="color: var(--forest-green);">⚡ 极速响应售后</h3>
+            <p style="color: rgba(255,255,255,0.8);">7×24小时专属客服，2小时内技术响应，中山及周边地区24小时上门。配套智能运维平台，故障预警前置处理。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="bg-light">
+    <div class="container contact-center">
+      <div class="fade-up">
+        <h2>开启绿色能源之旅</h2>
+        <p style="margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+          无论您是家庭屋顶、工厂厂区还是渔业水域，我们都将为您提供专业的免费勘测与定制化方案。欢迎直接致电咨询或前往公司实地考察！
+        </p>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-icon">👤</div>
+            <h3>业务咨询</h3>
+            <p style="font-size: 1.3rem; font-weight: 600;">何光彬 经理</p>
+            <a href="tel:15019539598" id="callBtn">📞 150-1953-9598</a>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h3>公司地址</h3>
+            <p style="font-size: 1.1rem;">中山市火炬开发区逸华路9号<br>星达嘉湖工业园1号楼5楼12卡</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#home">首页</a>
+        <a href="#about">关于我们</a>
+        <a href="#services">服务领域</a>
+        <a href="#contact">联系我们</a>
+      </div>
+      <p>© 2024 中山市家鑫建设安装工程有限公司 版权所有 | 专注分布式光伏 助力双碳目标</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 1. Header scroll effect
+      const header = document.getElementById('mainHeader');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      // 2. Mobile menu toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+      
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          const isExpanded = navLinks.classList.contains('active');
+          menuToggle.textContent = isExpanded ? '✕' : '☰';
+          menuToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+            menuToggle.textContent = '☰';
+          });
+        });
+      }
+
+      // 3. Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetEl = document.querySelector(targetId);
+          if (targetEl) {
+            const headerHeight = header.offsetHeight;
+            const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+          }
+        });
+      });
+
+      // 4. Intersection Observer for scroll animations
+      const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -50px 0px' };
+      const scrollObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-up').forEach(el => { scrollObserver.observe(el); });
+      
+      // 5. Image fallback handler (纯JS绑定，无内联事件)
+      document.querySelectorAll('img[data-fallback]').forEach(img => {
+        img.addEventListener('error', function() {
+          this.src = this.getAttribute('data-fallback');
+          this.removeAttribute('data-fallback');
+        });
+      });
+
+      // 6. Phone button interaction tracking
+      const callBtn = document.getElementById('callBtn');
+      if(callBtn) {
+          callBtn.addEventListener('click', function() {
+              console.log('用户点击了电话拨打按钮');
+          });
+      }
+    });
+  </script>
+</body>
+</html>
+
